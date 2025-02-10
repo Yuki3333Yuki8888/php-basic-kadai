@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,35 +9,38 @@
 
 <body>
   <p>
-  <?php
-// ソート関数の定義
-function sort_2way(array $array, bool $order): array {
-    if ($order) {
+    <?php
+    // ソート関数の定義
+    function sort_2way(array $array, bool $order)
+    {
+      if ($order) {
+        echo "昇順ソートです。<br>";
         sort($array); // 昇順ソート
-    } else {
+      } else {
+        echo "降順ソートです。<br>";
+
         rsort($array); // 降順ソート
+      }
+      foreach ($array as $num) {
+        echo $num . "<br>";
+      }
+    
     }
-    return $array;
-}
 
-// ソートする配列を宣言
-$nums = [15,4,18,23,10 ];
+    // ソートする配列を宣言
+    $nums = [15, 4, 18, 23, 10];
 
-// 昇順ソート
-$sorted_asc = sort_2way($nums, true);
-echo "昇順ソートです。<br>";
-foreach ($sorted_asc as $num) {
-    echo $num . "<br>";
-}
+    // 昇順ソート
+    sort_2way($nums, true);
 
-// 降順ソート
-$sorted_desc = sort_2way($nums, false);
-echo "降順ソートです。<br>";
-foreach ($sorted_desc as $num) {
-    echo $num . "<br>";
-}
-?>
+
+
+    // 降順ソート
+    sort_2way($nums, false);
+
+    ?>
   </p>
-  
+
 </body>
+
 </html>
